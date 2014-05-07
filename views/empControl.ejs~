@@ -1,0 +1,25 @@
+<% include header %>
+
+<h1>Employee Control Panel</h1>
+
+<h2>Your Info</h2>
+     <table>
+	<tr><td>First Name: </td>
+	<td><%= rs[0].Fname %></td>
+	</tr>
+	<tr><td>Last Name: </td>
+	<td><%= rs[0].Lname %></td>
+	</tr>
+	<tr><td>Email: </td>
+	<td><%= rs[0].Email %></td>
+	</tr>
+	<tr><td>Password: </td>
+	<td><%= rs[0].Password %></td>
+	</tr>
+	<tr><td>Position: </td>
+	<td><%= rs[0].posTitle %></td>
+</table>
+
+<a href="/employee/?empID=<%= rs[0].empID %>">Change password</a>
+
+<% include footer %>

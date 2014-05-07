@@ -1,0 +1,47 @@
+<% include header %>
+
+
+<h1>Employee Sign Up</h1>
+
+<form method = "POST" action="<%= action %>">
+      <table id="create">
+	     <tr><td>First Name:</td>
+			<td><input type="text" id="Fname" name="Fname" /></td>	
+		</tr>
+		<tr><td>Last Name:</td>
+			<td><input type="text" id="Lname" name="Lname" /></td>
+		</tr>
+		<tr><td>Email:</td>
+			<td><input type="text id="email" name="email" /></td>
+		</tr>
+		<tr><td>Password:</td>
+			<td><input type="password" id="password" name="password" /></td>
+		</tr>
+		<tr><td>Position:</td>
+			<td><p id="positions"></p></td>
+		</tr>
+	</table>
+	<input type="submit">
+</form>
+
+<% include footer %>
+
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/j	query.min.js"></script>
+           <script type="text/javascript">
+              
+            // Once the HTML has loaded, link javascript functions to HTML elements
+            $(document).ready(function () {
+            
+                // Populate Drop Down Menu with positions from MySQL
+                $.ajax({
+                    url: "/employee/select",
+                    type: "POST",
+                    contentType: "application/json",
+                    processData: false,
+                    complete: function (data) {
+                        $('#positions').html(data.responseText);
+			
+                    }
+                });
+	});
+	</script>

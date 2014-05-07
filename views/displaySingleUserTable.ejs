@@ -1,0 +1,25 @@
+<% include header %> 
+
+ <% if(rs.length > 0) { %> 
+  <table style="width:300px"> 
+   <tr>
+   <th>Name</th>
+   <th>LName</th>
+   <th>Email</th>
+   <th>Password</th>
+   </tr>
+   <% for (var i=0; rs.length > i; i++) { %> 
+      	   <tr> 
+              <td><a href="/employee/?empID=<%= rs[i].empID %> "> <%= rs[i].Fname %></a></td> 
+	      
+	      <td><%= rs[i].Lname %></td>
+	      <td><%= rs[i].Email %></td>
+	      <td><%= rs[i].Password %></td>
+	      </tr>
+ <% } %> 
+ </table> 
+<% } else { %> 
+     No users are entered into the database. 
+    <% } %> 
+
+<% include footer %>

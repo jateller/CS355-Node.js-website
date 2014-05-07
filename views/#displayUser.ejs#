@@ -1,0 +1,7 @@
+<% include header %>
+
+Data has been Submitted
+<br><br>
+<a href="/employee/login">Employee Login</a>
+
+<% include footer %>

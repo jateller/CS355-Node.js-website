@@ -1,0 +1,19 @@
+<% include header %>
+
+<h1>Change Password</h1>
+<form method="POST" action="<%= action %>">
+      <table>
+	<tr><td>Email:</td>
+	<td><input type="text" id="Email" name="Email" /></td>
+	</tr>
+	<tr><td>Current Password:</td>
+	<td><input type="password" id="oldPass" name="oldPass" /></td>
+	</tr>
+	<tr><td>New Password:</td>
+	<td><input type="password" id="newPass" name="newPass" /></td>
+	</tr>
+	</table>
+	<input type="submit">
+</form>
+
+<% include footer %>

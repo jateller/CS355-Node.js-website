@@ -1,0 +1,17 @@
+<% include header %>
+
+<h1>Employee Login</h1>
+<form method = "POST" action="<%= action %>">
+      <table id="login">
+                <tr><td>Email:</td>
+                        <td><input type="text id="Email" name="Email" /></td>
+                </tr>
+                <tr><td>Password:</td>
+                        <td><input type="password" id="Password" name="Password" /></td>
+        </table>
+        <input type="submit" id="login-submit">
+</form>
+<a href="/employee/create">Employee Sign-up</a>
+
+
+<% include footer %>

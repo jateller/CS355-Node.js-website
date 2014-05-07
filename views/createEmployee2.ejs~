@@ -1,0 +1,62 @@
+<% include header %>
+
+
+<h1>Employee Sign Up</h1>
+
+
+First Name: <input type="text" id="Fname" name="Fname" />	
+<br>	
+Last Name: <input type="text" id="Lname" name="Lname" />
+<br>
+Email: <input type="text" id="email" name="email" />
+<br>
+Password: <input type="password" id="pass" name="pass" />
+<br>
+
+Position: <div id="position"></div>
+<br>
+<input id="user-submit" type="submit" />
+<br>
+<p id="output"></p>
+
+<% include footer %>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+           <script type="text/javascript">
+              
+            // Once the HTML has loaded, link javascript functions to HTML elements
+            $(document).ready(function () {
+            
+                // Populate Drop Down Menu with positions from MySQL
+                $.ajax({
+                    url: "/employee/select",
+                    type: "POST",
+                    contentType: "application/json",
+                    processData: false,
+                    complete: function (data) {
+                        $('div#position').html(data.responseText);	
+                    }
+                });
+
+		$('#user-submit').click(function () {
+		var payload = {
+		    Fname: $('#Fname').val(),
+		    Lname: $('#Lname').val(),
+		    Email: $('#email').val(),
+		    Password: $('#pass').val(),
+		    Position: $('#position-list').val(),
+		    };
+		    console.log(payload);
+		    $.ajax({
+			url: "/employee/create",
+			type: "POST",
+			contentType: "application/json",
+			processData: false,
+			data: JSON.stringify(payload),
+			complete: function(data) {
+				  $('#output').html(data.responseText);
+			}
+		});
+	});
+});
+	</script>

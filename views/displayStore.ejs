@@ -1,0 +1,20 @@
+<% include header %>
+
+<table>
+	<tr>
+	<th>Address</th>
+	<th>City</th>
+	<th>Zip</th>
+	<th>Inventory</th>
+	</tr>
+	<% for (var i=0; rs.length > i; i++) { %>
+	        <tr>
+		<td><%= rs[i].Address %></td>
+		<td><%= rs[i].City %></td>
+		<td><%= rs[i].Zip %></td>
+		<td><a href="/store/?storeID=<%= rs[i].storeID %> ">View Stock</a></td>
+		</tr>
+	<% } %>
+</table>
+
+<% include footer %>
